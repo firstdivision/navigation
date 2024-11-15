@@ -44,13 +44,12 @@ func (l *LatLon) DistanceTo(point LatLon, precision int) float64 {
 	return d
 }
 
+// toRadians converts numeric degrees to radians
 func toRadians(f float64) float64 {
-	/** Converts numeric degrees to radians */
-
 	return f * math.Pi / 180
-
 }
 
+// toRadians converts numeric degrees to degrees
 func toDegrees(f float64) float64 {
 	return f * 180 / math.Pi
 }
