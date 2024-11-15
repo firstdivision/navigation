@@ -49,7 +49,7 @@ func toRadians(f float64) float64 {
 	return f * math.Pi / 180
 }
 
-// toRadians converts numeric degrees to degrees
+// toDegrees converts numeric degrees to degrees
 func toDegrees(f float64) float64 {
 	return f * 180 / math.Pi
 }
