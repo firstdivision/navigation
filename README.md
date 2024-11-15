@@ -5,3 +5,5 @@ Golang implementations of common global navigation algorithmns.
 
 # References
 * https://github.com/umahmood/haversine/blob/master/haversine.go
+* https://www.vcalc.com/wiki/vcalc/haversine-distance
+* https://www.movable-type.co.uk/scripts/latlong.html   

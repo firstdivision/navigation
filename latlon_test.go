@@ -76,6 +76,12 @@ func TestDistanceTo(t *testing.T) {
 			6094.544408786774,
 		},
 		{
+			"NYC to Boston",
+			latLon{Latitude: 40.71, Longitude: 74},
+			latLon{Latitude: 42.36, Longitude: 71.05},
+			306.4858388776133,
+		},
+		{
 			"Identical locations",
 			latLon{Latitude: 22.55, Longitude: 43.12},
 			latLon{Latitude: 22.55, Longitude: 43.12},
