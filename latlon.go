@@ -8,6 +8,7 @@ type LatLon struct {
 	Longitude float64
 }
 
+// DistanceTo returns the distance, in kilometers, between the two points
 func (l *LatLon) DistanceTo(point LatLon) float64 {
 
 	lat1 := toRadians(l.Latitude)
@@ -33,8 +34,3 @@ func (l *LatLon) DistanceTo(point LatLon) float64 {
 func toRadians(f float64) float64 {
 	return f * math.Pi / 180
 }
-
-// // toDegrees converts numeric degrees to degrees
-// func toDegrees(f float64) float64 {
-// 	return f * 180 / math.Pi
-// }
