@@ -14,14 +14,14 @@ func TestNewLatLon(t *testing.T) {
 		lon  float64
 
 		//expected
-		latLon *latLon
+		latLon *LatLon
 		err    error
 	}{
 		{
 			name:   "Ok 1 - zeros",
 			lat:    0,
 			lon:    0,
-			latLon: &latLon{},
+			latLon: &LatLon{},
 			err:    nil,
 		}, {
 			name:   "Bad 1 - Latitude below 90",
@@ -64,33 +64,33 @@ func TestDistanceTo(t *testing.T) {
 
 	var tests = []struct {
 		name     string
-		p1       latLon
-		p2       latLon
+		p1       LatLon
+		p2       LatLon
 		distance float64
 	}{
 		// Test case borrowed from https://github.com/umahmood/haversine
 		{
 			"Rio de Janeiro Brazil to Bangkok Thailand",
-			latLon{Latitude: 22.55, Longitude: 43.12},
-			latLon{Latitude: 13.45, Longitude: 100.28},
+			LatLon{Latitude: 22.55, Longitude: 43.12},
+			LatLon{Latitude: 13.45, Longitude: 100.28},
 			6094.544408786774,
 		},
 		{
 			"NYC to Boston",
-			latLon{Latitude: 40.71, Longitude: 74},
-			latLon{Latitude: 42.36, Longitude: 71.05},
+			LatLon{Latitude: 40.71, Longitude: 74},
+			LatLon{Latitude: 42.36, Longitude: 71.05},
 			306.4858388776133,
 		},
 		{
 			"Identical locations",
-			latLon{Latitude: 22.55, Longitude: 43.12},
-			latLon{Latitude: 22.55, Longitude: 43.12},
+			LatLon{Latitude: 22.55, Longitude: 43.12},
+			LatLon{Latitude: 22.55, Longitude: 43.12},
 			0,
 		},
 		{
 			"Max Values",
-			latLon{Latitude: -90, Longitude: -360},
-			latLon{Latitude: 90, Longitude: 360},
+			LatLon{Latitude: -90, Longitude: -360},
+			LatLon{Latitude: 90, Longitude: 360},
 			20015.086796020572,
 		},
 	}
