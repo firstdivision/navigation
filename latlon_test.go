@@ -68,6 +68,7 @@ func TestDistanceTo(t *testing.T) {
 		p2       latLon
 		distance float64
 	}{
+		// Test case borrowed from https://github.com/umahmood/haversine
 		{
 			"Rio de Janeiro Brazil to Bangkok Thailand",
 			latLon{Latitude: 22.55, Longitude: 43.12},
