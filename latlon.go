@@ -1,15 +1,34 @@
 package navigation
 
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
-// LatLon structure represents a coordinate on the surface of the Earth
-type LatLon struct {
+// latLon structure represents a coordinate on the surface of the Earth
+type latLon struct {
 	Latitude  float64
 	Longitude float64
 }
 
+func NewLatLon(lat, lon float64) (*latLon, error) {
+
+	if lat < -90 || lat > 90 {
+		return nil, fmt.Errorf("latitude must be between -90 and 90")
+	}
+
+	if lon < -180 || lon > 180 {
+		return nil, fmt.Errorf("longitude must be between -180 and 180")
+	}
+
+	return &latLon{
+		Latitude:  lat,
+		Longitude: lon,
+	}, nil
+}
+
 // DistanceTo returns the distance, in kilometers, between the two points
-func (l *LatLon) DistanceTo(point LatLon) float64 {
+func (l *latLon) DistanceTo(point latLon) float64 {
 
 	lat1 := toRadians(l.Latitude)
 	lon1 := toRadians(l.Longitude)
