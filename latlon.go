@@ -3,33 +3,39 @@ package navigation
 import "math"
 
 type ILatLon interface {
-	DistanceTo(point LatLon, precision int) float64
+	DistanceTo(point LatLon) float64
+	Latitude() float64
+	Longitude() float64
 }
 
-// LatLon structure represents a coordinate on the surfact of the Earth
+// LatLon structure represents a coordinate on the surface of the Earth
 type LatLon struct {
-	Latitude  float64
-	Longitude float64
+	latitude  float64
+	longitude float64
 }
 
 func NewLatLon(latitude, Longitude float64) ILatLon {
 	return &LatLon{
-		Latitude:  latitude,
-		Longitude: Longitude,
+		latitude:  latitude,
+		longitude: Longitude,
 	}
 }
 
-func (l *LatLon) DistanceTo(point LatLon, precision int) float64 {
+func (l *LatLon) Latitude() float64 {
+	return l.latitude
+}
 
-	if precision <= 0 {
-		precision = 4
-	}
+func (l *LatLon) Longitude() float64 {
+	return l.longitude
+}
 
-	lat1 := toRadians(l.Latitude)
-	lon1 := toRadians(l.Longitude)
+func (l *LatLon) DistanceTo(point LatLon) float64 {
 
-	lat2 := toRadians(point.Latitude)
-	lon2 := toRadians(point.Longitude)
+	lat1 := toRadians(l.latitude)
+	lon1 := toRadians(l.longitude)
+
+	lat2 := toRadians(point.latitude)
+	lon2 := toRadians(point.longitude)
 
 	dLat := lat2 - lat1
 	dLon := lon2 - lon1
@@ -49,7 +55,7 @@ func toRadians(f float64) float64 {
 	return f * math.Pi / 180
 }
 
-// toDegrees converts numeric degrees to degrees
-func toDegrees(f float64) float64 {
-	return f * 180 / math.Pi
-}
+// // toDegrees converts numeric degrees to degrees
+// func toDegrees(f float64) float64 {
+// 	return f * 180 / math.Pi
+// }
