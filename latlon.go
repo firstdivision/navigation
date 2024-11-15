@@ -2,40 +2,19 @@ package navigation
 
 import "math"
 
-type ILatLon interface {
-	DistanceTo(point LatLon) float64
-	Latitude() float64
-	Longitude() float64
-}
-
 // LatLon structure represents a coordinate on the surface of the Earth
 type LatLon struct {
-	latitude  float64
-	longitude float64
-}
-
-func NewLatLon(latitude, Longitude float64) ILatLon {
-	return &LatLon{
-		latitude:  latitude,
-		longitude: Longitude,
-	}
-}
-
-func (l *LatLon) Latitude() float64 {
-	return l.latitude
-}
-
-func (l *LatLon) Longitude() float64 {
-	return l.longitude
+	Latitude  float64
+	Longitude float64
 }
 
 func (l *LatLon) DistanceTo(point LatLon) float64 {
 
-	lat1 := toRadians(l.latitude)
-	lon1 := toRadians(l.longitude)
+	lat1 := toRadians(l.Latitude)
+	lon1 := toRadians(l.Longitude)
 
-	lat2 := toRadians(point.latitude)
-	lon2 := toRadians(point.longitude)
+	lat2 := toRadians(point.Latitude)
+	lon2 := toRadians(point.Longitude)
 
 	dLat := lat2 - lat1
 	dLon := lon2 - lon1
