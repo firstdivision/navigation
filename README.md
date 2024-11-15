@@ -1,2 +1,2 @@
 # navigation
-Golang implementations of common global navigation algorithmns.
+Golang implementations of common global navigation algorithmns. 
